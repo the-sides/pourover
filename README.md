@@ -1,3 +1,8 @@
+# Pourover
+Vicki and I have often talked about making a food blog of all the restaurants we've visited, as the most unqualified set of people to do so. We have a notion page of writings, but we never went as far as organizing and publishing them. 
+
+Meanwhile, I was fascinated by Prismic and used the blog idea as a simple theme while exploring the CMS. Nothing has actually been done, but if I go about actually making the blog site, I would definitely consider Prismic. 
+
 # Prismic + Next.js Minimal Starter
 
 Want to quickly get started building your own project with [Prismic][prismic] and [Next.js][nextjs]? This project includes basic configurations and nothing else. The project includes one Rich Text slice, a homepage, and a dynamic page.
