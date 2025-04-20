@@ -10,7 +10,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-slate-700 text-white">
+      <body className="bg-[rgb(37,35,32)] text-white min-h-screen flex flex-col">
         <Nav />
         {children}
       </body>

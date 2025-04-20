@@ -137,7 +137,10 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type TripDocumentDataSlicesSlice = BlogHeroSlice | BlogContentSlice;
+type TripDocumentDataSlicesSlice =
+  | FooterSlice
+  | BlogHeroSlice
+  | BlogContentSlice;
 
 /**
  * Content for Trip documents
@@ -299,6 +302,33 @@ export type BlogHeroSlice = prismic.SharedSlice<
   "blog_hero",
   BlogHeroSliceVariation
 >;
+
+/**
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Footer*
+ */
+type FooterSliceVariation = FooterSliceDefault;
+
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: Footer
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -601,6 +631,9 @@ declare module "@prismicio/client" {
       BlogHeroSliceDefaultPrimary,
       BlogHeroSliceVariation,
       BlogHeroSliceDefault,
+      FooterSlice,
+      FooterSliceVariation,
+      FooterSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceImageRightPrimary,
