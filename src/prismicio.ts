@@ -18,6 +18,7 @@ export const repositoryName =
 const routes: Route[] = [
   { type: "page", uid: "home", path: "/" },
   { type: "page", path: "/:uid" },
+  { type: "trip", path: "/trip/:uid" },
 ];
 
 /**
@@ -32,7 +33,7 @@ export function createClient(config: ClientConfig = {}) {
     fetchOptions:
       process.env.NODE_ENV === "production"
         ? { next: { tags: ["prismic"] }, cache: "force-cache" }
-        : { next: { revalidate: 5 } },
+        : { next: { revalidate: 0 } },
     ...config,
   });
 

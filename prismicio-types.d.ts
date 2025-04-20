@@ -137,7 +137,168 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = AboutDocument | PageDocument;
+type TripDocumentDataSlicesSlice = BlogHeroSlice | BlogContentSlice;
+
+/**
+ * Content for Trip documents
+ */
+interface TripDocumentData {
+  /**
+   * Slice Zone field in *Trip*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TripDocumentDataSlicesSlice> /**
+   * Meta Title field in *Trip*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: trip.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Trip*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: trip.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Trip*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Trip document from Prismic
+ *
+ * - **API ID**: `trip`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TripDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<TripDocumentData>, "trip", Lang>;
+
+export type AllDocumentTypes = AboutDocument | PageDocument | TripDocument;
+
+/**
+ * Primary content in *BlogContent → Default → Primary*
+ */
+export interface BlogContentSliceDefaultPrimary {
+  /**
+   * Content field in *BlogContent → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Start your story
+   * - **API ID Path**: blog_content.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for BlogContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlogContentSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogContent*
+ */
+type BlogContentSliceVariation = BlogContentSliceDefault;
+
+/**
+ * BlogContent Shared Slice
+ *
+ * - **API ID**: `blog_content`
+ * - **Description**: BlogContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogContentSlice = prismic.SharedSlice<
+  "blog_content",
+  BlogContentSliceVariation
+>;
+
+/**
+ * Primary content in *BlogHero → Default → Primary*
+ */
+export interface BlogHeroSliceDefaultPrimary {
+  /**
+   * Name or Heading field in *BlogHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: ex. Milk & Honey
+   * - **API ID Path**: blog_hero.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Image field in *BlogHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_hero.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for BlogHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlogHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogHero*
+ */
+type BlogHeroSliceVariation = BlogHeroSliceDefault;
+
+/**
+ * BlogHero Shared Slice
+ *
+ * - **API ID**: `blog_hero`
+ * - **Description**: BlogHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogHeroSlice = prismic.SharedSlice<
+  "blog_hero",
+  BlogHeroSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -428,7 +589,18 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      TripDocument,
+      TripDocumentData,
+      TripDocumentDataSlicesSlice,
       AllDocumentTypes,
+      BlogContentSlice,
+      BlogContentSliceDefaultPrimary,
+      BlogContentSliceVariation,
+      BlogContentSliceDefault,
+      BlogHeroSlice,
+      BlogHeroSliceDefaultPrimary,
+      BlogHeroSliceVariation,
+      BlogHeroSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceImageRightPrimary,

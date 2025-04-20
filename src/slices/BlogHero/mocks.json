@@ -1,0 +1,37 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Milk & Honey"
+			},
+			"image": {
+				"__TYPE__": "ImageContent",
+				"provider": "imgix",
+				"url": "https://images.unsplash.com/photo-1617535394783-60cb2381b2ce?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzQ1MDUwNDM1fDA&ixlib=rb-4.0.3&q=85&rect=0%2C1800%2C3949%2C3939&w=3949&h=3939",
+				"alt": "clear glass mug with orange fruits",
+				"origin": {
+					"id": "HotKYJ-d6gs",
+					"url": "https://images.unsplash.com/photo-1617535394783-60cb2381b2ce?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzQ1MDUwNDM1fDA&ixlib=rb-4.0.3&q=85",
+					"width": 3949,
+					"height": 5939
+				},
+				"width": 3949,
+				"height": 3939,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 1800
+					}
+				},
+				"thumbnails": {}
+			}
+		},
+		"items": []
+	}
+]

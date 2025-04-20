@@ -1,0 +1,34 @@
+{
+  "id": "blog_hero",
+  "type": "SharedSlice",
+  "name": "BlogHero",
+  "description": "BlogHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Name or Heading",
+            "placeholder": "ex. Milk & Honey"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
