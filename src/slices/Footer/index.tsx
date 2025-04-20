@@ -15,11 +15,12 @@ export type FooterProps = SliceComponentProps<Content.FooterSlice>;
 const Footer: FC<FooterProps> = ({ slice }) => {
   return (
     <section
-    className="bg-[rgb(37,35,32)] w-full pt-[40vh] mt-auto"
+    className="w-full pt-[40vh] mt-auto relative"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <Image className="w-full" alt="Mountains" src={MountainImg}/>
+      <Image className="w-full fade-top-mask" alt="Mountains" src={MountainImg}/>
+
     </section>
   );
 };

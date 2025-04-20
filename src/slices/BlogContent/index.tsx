@@ -17,7 +17,7 @@ const BlogContent: FC<BlogContentProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="prose prose-headings:text-white md:prose-2xl !text-white border-l border-r px-4 border-amber-100 max-w-[600px] mx-auto">
+      <div className="prose-2xl p-12 bg-amber-700/20 rounded-2xl max-w-[600px] mx-auto">
         <PrismicRichText field={slice.primary.content} />
       </div>
     </section>
